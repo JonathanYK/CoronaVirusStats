@@ -9,14 +9,17 @@ from bs4 import BeautifulSoup
 import urllib.request
 
 def CoronaStats():
-    url = 'https://www.worldometers.info/coronavirus/?'
-    path = 'D:/Documents/chromedriver/chromedriver'
 
+    # Webdriver path, please ensure:
+    path = 'D:/Documents/chromedriver/chromedriver'
+    url = 'https://www.worldometers.info/coronavirus/?'
+
+    # In order to show the process:
     browser = webdriver.Chrome(path)
     browser.get(url)
 
-    html_text = requests.get(url).text
-    soup = BeautifulSoup(html_text, "html.parser")
+    htmlText = requests.get(url).text
+    soup = BeautifulSoup(htmlText, "html.parser")
 
 
     totalCasesWorld = soup.find(attrs={'class': 'total_row_body body_world'
@@ -55,7 +58,7 @@ def CoronaStats():
 
 
 
-    print(soup)
+    #print(soup)
 
 
 
