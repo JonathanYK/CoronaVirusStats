@@ -1,4 +1,4 @@
-from pip._vendor import requests
+import requests
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -6,7 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 
 from bs4 import BeautifulSoup
-import urllib.request
 
 def CoronaStats():
 
@@ -19,7 +18,10 @@ def CoronaStats():
     browser.get(url)
 
     htmlText = requests.get(url).text
-    soup = BeautifulSoup(htmlText, "html.parser")
+    soup = BeautifulSoup(htmlText, "lxml")
+
+    print(soup)
+
 
 
     totalCasesWorld = soup.find(attrs={'class': 'total_row_body body_world'
@@ -58,6 +60,8 @@ def CoronaStats():
 
 
 
+    #print(soup)
+    #print(soup)
     #print(soup)
 
 
